@@ -1,0 +1,12 @@
+{
+  "name": "crna-project",
+  "displayName": "crna-project",
+  "expo": {
+    "name": "crna-project",
+    "slug": "crna-project",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
