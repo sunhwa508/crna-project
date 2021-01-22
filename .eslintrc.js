@@ -3,7 +3,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'eslint:recommended',
+    'plugin:prettier/recommended',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -11,12 +16,15 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['detox', 'react', 'prettier'],
+
+  plugins: ['detox', 'react', 'prettier', 'jest'],
   overrides: [
     {
       files: ['*.e2e.js'],
       env: {
         'detox/detox': true,
+        jest: true,
+        'jest/globals': true,
       },
     },
   ],
