@@ -2,7 +2,7 @@
 
 리액트 네이티브에서 detox 세팅해보기
 
-# CRNA
+### CRNA
 
 ```
 $ npm i -g create-react-native-app
@@ -12,7 +12,7 @@ $ npm install
 
 ```
 
-# detox setting
+### detox setting
 
 ```
 $ xcode-select --install
@@ -24,7 +24,12 @@ $ yarn add --dev detox jest-circus
 $ detox init -r jest
 ```
 
-# prettier / lint
+### detox 실행
+```
+$ detox build -c ios
+$ detox test -c ios
+```
+### prettier / lint
 
 ```
 npm run lint
