@@ -1,16 +1,18 @@
 {
+  "name": "crna-project",
   "main": "index.js",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "clean": "watchman watch-del-all&&react-native start --reset-cache",
     "lint": "eslint . --fix",
     "format": "prettier"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.12.11",
     "detox": "^18.2.2",
     "eslint-plugin-detox": "^1.0.0",
     "expo": "~40.0.0",
@@ -28,8 +30,8 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0",
-    "babel-jest": "~25.2.6",
+    "@babel/core": "^7.9.6",
+    "babel-jest": "^25.2.6",
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -42,7 +44,18 @@
     "react-test-renderer": "~16.13.1"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "testRegex": "(/(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$/.*|(\\.|/)(test))\\.js$",
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__tests__/App.js",
+      "\\.(css|less)$": "<rootDir>/__tests__/App.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-navigation)"
+    ]
   },
   "private": true
 }
